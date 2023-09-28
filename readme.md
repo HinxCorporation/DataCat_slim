@@ -56,5 +56,4 @@ Q:\BaiduNetdisk
 ### Test
 
 
-
-![image-20230928165425256]("https://github.com/HinxCorporation/DataCat_slim/main/readme.assets/image-20230928165425256.png")
+![Test Result](https://github.com/HinxCorporation/DataCat_slim/raw/main/readme.assets/image-20230928165425256.png)
