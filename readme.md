@@ -57,4 +57,4 @@ Q:\BaiduNetdisk
 
 
 
-![image-20230928165425256](.\readme.assets\image-20230928165425256.png)
+![image-20230928165425256]("https://github.com/HinxCorporation/DataCat_slim/blob/main/readme.assets/image-20230928165425256.png")
