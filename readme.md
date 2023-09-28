@@ -15,7 +15,10 @@ python -m venv venv
 step . 2 active env 
 
 ```
+# for ps is 
 .\venv\Scripts\Activate.ps1
+# for linux is
+source venv/bin/activate
 ```
 
 step .3 . install requirements
