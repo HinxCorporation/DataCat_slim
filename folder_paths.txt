@@ -1,0 +1,8 @@
+../foldera
+folderb
+d:/folderc
+/volume1/fodere
+F:\Root\volume-Files\Desktop46f5e
+../../..\volume-Files\work165
+F:\Root\volume-workbench\Python
+Q:\BaiduNetdisk
