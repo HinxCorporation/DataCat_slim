@@ -1,9 +1,6 @@
-# 这是一个示例 Python 脚本。
-from PyIndexing.IndexUtil import IndexUtil
 from tqdm import tqdm
-import PyIndexing.IndexUtil as indexUtil
 import DAO.DaoUtil
-import yaml
+import PyIndexing.IndexUtil as indexUtil
 import sqlutil
 
 
@@ -17,29 +14,28 @@ def test_connection():
     print('bye')
 
 
+def collect_folders():
+    configFile = "folder_paths.txt"
+    with open(configFile, 'r', encoding='utf-8') as ffile:
+        lines = ffile.readlines()
+    folders = []
+    for line in tqdm(iterable=lines, unit='dir', desc='trip'):
+        su, j_dir = indexUtil.get_abs_folder(line)
+        if su:
+            folders.append(j_dir)
+    return folders
+
+
 def main():
     """
     程序入口
     :return:
     """
-    # 测试读取一个文件信息, 并且将其转成Yaml输出
-    # testfile = 'config.ini'
-    # info = indexUtil.read_file_info_from_file(testfile)
-    # print(yaml.dump(info))
 
     # 读Path List
-    configFile = "folder_paths.txt"
-    with open(configFile, 'r', encoding='utf-8') as ffile:
-        lines = ffile.readlines()
-    util = IndexUtil()
-    util.process_folders(lines)
-    folder_infos = util.index_folders
-
-    print(f'Success read assets {len(folder_infos)} , then will run gen db one time')
-    # for dir in tqdm(folder_infos,unit='fs',desc='Travel folders'):
-    for dir in folder_infos:
-        s_dir = folder_infos[dir]
-        sqlutil.create_db(s_dir)
+    folders = collect_folders()
+    for folder in folders:
+        sqlutil.create_db(folder)
 
 
 if __name__ == "__main__":

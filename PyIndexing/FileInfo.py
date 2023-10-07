@@ -21,7 +21,6 @@ class FileInfo:
         self.external_link = external_link
         self.notes = notes
 
-
     @classmethod
     def from_file(cls, file_path):
         """

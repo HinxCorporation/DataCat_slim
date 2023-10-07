@@ -30,12 +30,18 @@ def folder_to_db_name(folder: string):
     return f'{md5.hexdigest()}_{os.path.basename(folder)}.db'
 
 
-def create_db(folder: IndexFolder):
-    db_name = folder_to_db_name(folder.path)
-    ensure_db(db_name)
-    tw = IndexViewFolder(folder.path)
-    files = tw.collect_files()
+def create_db_index_folder(folder: IndexFolder):
+    full_path = folder.path
+    create_db(full_path)
 
+
+def create_db(full_path):
+    db_name = folder_to_db_name(full_path)
+    print(f'ready {db_name} , begin indexing .')
+    ensure_db(db_name)
+    tw = IndexViewFolder(full_path)
+    files = tw.collect_files()
+    print(f'index {db_name} finished {len(files)} files')
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
 

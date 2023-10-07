@@ -5,6 +5,28 @@ from PyIndexing.FileInfo import FileInfo
 from PyIndexing.IndexFolder import IndexFolder
 
 
+def get_abs_folder(folder_path):
+    """
+    获取指定路径的绝对位置
+    :param folder_path:
+    :return:
+    """
+    # 处理相对路径、绝对路径和环境变量
+    folder_path = folder_path.strip()
+    processed_path = os.path.expandvars(os.path.expanduser(folder_path))
+
+    if not os.path.isabs(processed_path):
+        processed_path = os.path.abspath(processed_path)
+    try:
+        # 检测路径是否可读
+        if os.path.isdir(processed_path) and os.access(processed_path, os.R_OK):
+            return True, processed_path
+        else:
+            return False, processed_path
+    except Exception as e:
+        return False, e.args
+
+
 class IndexUtil:
     def __init__(self):
         self.errors: string = []
