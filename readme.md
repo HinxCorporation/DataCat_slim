@@ -15,7 +15,10 @@ python -m venv venv
 step . 2 active env 
 
 ```
+# for ps is 
 .\venv\Scripts\Activate.ps1
+# for linux is
+source venv/bin/activate
 ```
 
 step .3 . install requirements
@@ -56,5 +59,4 @@ Q:\BaiduNetdisk
 ### Test
 
 
-
-![image-20230928165425256](.\readme.assets\image-20230928165425256.png)
+![Test Result](https://github.com/HinxCorporation/DataCat_slim/raw/main/readme.assets/image-20230928165425256.png)
